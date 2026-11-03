@@ -22,9 +22,15 @@ jobs:
     needs: testes
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    env:
+      PERFIL: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
     steps:
+      - if: env.PERFIL == ''
+        run: echo "::notice::Secret AZURE_WEBAPP_PUBLISH_PROFILE ainda não configurado; deploy pulado."
       - uses: actions/checkout@v4
+        if: env.PERFIL != ''
       - uses: azure/webapps-deploy@v3
+        if: env.PERFIL != ''
         with:
           app-name: engsoft-lab86-backend
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
