@@ -3,7 +3,7 @@
 Camada **servidor** da arquitetura Cliente-Servidor da livraria: uma API REST em JSON, publicada separadamente do front-end.
 
 - **Back-end publicado:** https://engsoft-lab86-backend.azurewebsites.net *(após o deploy)* (teste: https://engsoft-lab86-backend.azurewebsites.net/api/livros)
-- **Front-end:** endereço do Azure Static Web Apps *(após o deploy)* · repositório [livraria-frontend-exercicio-8-6](https://github.com/HenriqueRSouza/livraria-frontend-exercicio-8-6)
+- **Front-end publicado:** https://engsoft-lab86-frontend.azurewebsites.net *(após o deploy)* · repositório [livraria-frontend-exercicio-8-6](https://github.com/HenriqueRSouza/livraria-frontend-exercicio-8-6)
 - Diagrama da arquitetura: [board do Miro](https://miro.com/app/board/uXjVETAfWIY=/)
 
 ## Do diagrama para o código
@@ -79,8 +79,11 @@ az webapp config set -g <grupo> -n engsoft-lab86-backend --startup-file \
   'gunicorn --bind=0.0.0.0:8000 --workers 1 --threads 8 --timeout 120 app:app'
 az webapp config appsettings set -g <grupo> -n engsoft-lab86-backend --settings \
   SCM_DO_BUILD_DURING_DEPLOYMENT=true LIVRARIA_DADOS=/home/dados \
-  LIVRARIA_SECRET=<chave-aleatoria> LIVRARIA_CORS_ORIGENS=<endereço do front-end>
+  LIVRARIA_SECRET=<chave-aleatoria> \
+  LIVRARIA_CORS_ORIGENS=https://engsoft-lab86-frontend.azurewebsites.net
 ```
+
+O front-end é outro Web App (Node), que pode ficar no mesmo plano. Ele aponta para esta API pela variável `LIVRARIA_API_URL`, e esta API só aceita chamadas do navegador vindas das origens em `LIVRARIA_CORS_ORIGENS`.
 
 ### Limites conhecidos
 

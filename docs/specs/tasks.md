@@ -23,4 +23,4 @@ Marcar somente após verificar a tarefa. T01–T17 foram concluídas nos exercí
 - [x] T30 Separar front-end e back-end em repositórios próprios.
 - [x] T31 Back-end: remover a entrega do cliente, liberar o front-end no CORS e trocar o cookie de sessão por token Bearer.
 - [x] T32 Front-end: `config.js` com o endereço da API, token no `localStorage` e testes em Node (MVC, Model e View).
-- [ ] T33 Publicar o back-end no Azure App Service e o front-end no Azure Static Web Apps, com deploy automático pelo GitHub Actions.
+- [ ] T33 Publicar o back-end no Azure App Service e o front-end em outro Web App (Node) no mesmo plano, ligados por LIVRARIA_API_URL e LIVRARIA_CORS_ORIGENS, com deploy automático pelo GitHub Actions.

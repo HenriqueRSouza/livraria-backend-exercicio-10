@@ -10,7 +10,7 @@ Entidades: **Livro** (id, título, autor, gênero, sinopse); **Edição** (id, l
 
 ## Arquitetura (cliente-servidor)
 
-- **Cliente** (repositório do front-end, Azure Static Web Apps): HTML/CSS/JavaScript com View, Controller e Model; só o Model chama a API.
+- **Cliente** (repositório do front-end, Azure App Service com Node): HTML/CSS/JavaScript com View, Controller e Model; só o Model chama a API.
 - **Servidor** (este repositório, Azure App Service): `app.py` (Aplicação) registra as rotas e libera o front-end no CORS (`LIVRARIA_CORS_ORIGENS`); `rotas.py` (Routes) expõe a API REST em `/api`, só com JSON. Erros de regra: 400 (404 em consultas); sem login: 401.
 - **Negócios e Dados**: os módulos abaixo (API pública + repositórios), sem conhecer HTTP.
 - Login por token assinado (`itsdangerous`, validade de 30 dias) devolvido no cadastro/entrada e enviado em `Authorization: Bearer`; sem cookie, porque cliente e servidor estão em domínios diferentes. Não há senha nem autenticação de produção.
