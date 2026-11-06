@@ -2,8 +2,8 @@
 
 Camada **servidor** da arquitetura Cliente-Servidor da livraria: uma API REST em JSON, publicada separadamente do front-end.
 
-- **Back-end publicado:** https://engsoft-lab86-backend.azurewebsites.net *(após o deploy)* (teste: https://engsoft-lab86-backend.azurewebsites.net/api/livros)
-- **Front-end publicado:** https://engsoft-lab86-frontend.azurewebsites.net *(após o deploy)* · repositório [livraria-frontend-exercicio-8-6](https://github.com/HenriqueRSouza/livraria-frontend-exercicio-8-6)
+- **Back-end publicado:** https://engsoft-lab86-backend.azurewebsites.net (teste: https://engsoft-lab86-backend.azurewebsites.net/api/livros)
+- **Front-end publicado:** https://engsoft-lab86-frontend.azurewebsites.net · repositório [livraria-frontend-exercicio-8-6](https://github.com/HenriqueRSouza/livraria-frontend-exercicio-8-6)
 - Diagrama da arquitetura: [board do Miro](https://miro.com/app/board/uXjVETAfWIY=/)
 
 ## Do diagrama para o código
