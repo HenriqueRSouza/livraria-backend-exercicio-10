@@ -11,7 +11,11 @@ def dados_exemplo():
              "Retirada", False, "Oficina de leitura mensal"),
         Estoque(1, 1, 1, "Literatura"), Estoque(1, 2, 2, "Ficção"), Estoque(2, 1, 0, "Literatura"),
         Estoque(2, 2, 1, "Ficção"), Estoque(3, 1, 2, "Tecnologia"), Estoque(3, 2, 0, "Tecnologia"),
-    ]
+    ] + [Estoque(edicao, loja, quantidade, secao)  # edições 4–13 do catálogo (livros 3–12)
+         for edicao, secao in ((4, "Literatura"), (5, "Literatura"), (6, "Literatura"), (7, "Literatura"),
+                               (8, "Literatura"), (9, "Tecnologia"), (10, "Tecnologia"), (11, "Infantil"),
+                               (12, "Ficção"), (13, "História"))
+         for loja, quantidade in ((1, 3), (2, 1))]
 
 
 def criar_repositorio(caminho):

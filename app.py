@@ -9,8 +9,13 @@ from livraria.aplicacao import montar_modulos
 from livraria.servidor.app import create_app
 
 
-def criar_app(pasta_dados=None):
-    return create_app(montar_modulos(pasta_dados or os.environ.get("LIVRARIA_DADOS", "dados")))
+def criar_app(pasta_dados=None, mongo_url=None, postgres_url=None):
+    """Sem pasta informada (produção), lê LIVRARIA_DADOS, LIVRARIA_MONGO_URL e LIVRARIA_POSTGRES_URL."""
+    if pasta_dados is None:
+        pasta_dados = os.environ.get("LIVRARIA_DADOS", "dados")
+        mongo_url = os.environ.get("LIVRARIA_MONGO_URL")
+        postgres_url = os.environ.get("LIVRARIA_POSTGRES_URL")
+    return create_app(montar_modulos(pasta_dados, mongo_url, postgres_url))
 
 
 def __getattr__(nome):

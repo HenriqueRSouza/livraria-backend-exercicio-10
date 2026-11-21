@@ -20,7 +20,7 @@ class ModulosTest(unittest.TestCase):
         return self.m.estoque.obter(edicao_id, loja_id).quantidade
 
     def test_c01_busca(self):
-        self.assertEqual(len(self.m.busca.buscar_livros()), 2)
+        self.assertEqual(len(self.m.busca.buscar_livros()), 12)  # Exercício 10.1: pelo menos 10 livros
         self.assertEqual([b.id for b in self.m.busca.buscar_livros("mares", "ANDRADE", "ficcao")], [1])
         self.assertEqual(self.m.busca.buscar_livros(titulo="inexistente"), [])
 
@@ -43,11 +43,11 @@ class ModulosTest(unittest.TestCase):
         ana = self.cliente()
         with self.assertRaises(RegraInvalida):
             self.cliente("ANA@example.com")
-        self.assertEqual([b.id for b in self.m.usuarios.recomendacoes(ana)], [1])
+        self.assertEqual([b.id for b in self.m.usuarios.recomendacoes(ana)], [1, 11])
         self.m.usuarios.favoritar(ana, 1)
         self.m.usuarios.favoritar(ana, 1)
         self.assertEqual(len(self.m.usuarios.favoritos(ana)), 1)
-        self.assertEqual(self.m.usuarios.recomendacoes(ana), [])
+        self.assertEqual([b.id for b in self.m.usuarios.recomendacoes(ana)], [11])
         self.m.usuarios.favoritar(ana, 1, adicionar=False)
         self.assertEqual(self.m.usuarios.favoritos(ana), [])
         # evento ClienteCadastrado -> módulo Notificações

@@ -19,7 +19,7 @@ class RepositorioTxtTest(unittest.TestCase):
     def test_implementa_a_interface_e_grava_dados_de_exemplo(self):
         repo = dados_catalogo.criar_repositorio(self.pasta / "catalogo.txt")
         self.assertIsInstance(repo, RepositorioModulo)
-        self.assertEqual(len(repo.listar(Livro)), 2)
+        self.assertEqual(len(repo.listar(Livro)), 12)
         linhas = (self.pasta / "catalogo.txt").read_text(encoding="utf-8").splitlines()
         self.assertTrue(linhas[0].startswith("# catalogo"))
         for linha in linhas[1:]:
@@ -27,7 +27,7 @@ class RepositorioTxtTest(unittest.TestCase):
             self.assertIsInstance(json.loads(conteudo), dict)
         self.assertIn('livro\t{"autor": "L. Andrade"', "\n".join(linhas))
         dados_catalogo.criar_repositorio(self.pasta / "catalogo.txt")  # reabrir não duplica os dados de exemplo
-        self.assertEqual(len(dados_catalogo.criar_repositorio(self.pasta / "catalogo.txt").listar(Livro)), 2)
+        self.assertEqual(len(dados_catalogo.criar_repositorio(self.pasta / "catalogo.txt").listar(Livro)), 12)
 
     def test_dados_persistem_ao_reabrir(self):
         m = montar_modulos(self.pasta)
