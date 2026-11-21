@@ -1,9 +1,4 @@
-"""Armazenamento do catálogo e dados de exemplo gravados na primeira execução.
-
-Produção (Exercício 10.1): banco NoSQL Azure Cosmos DB for MongoDB, quando há uma string de conexão.
-Sem ela (testes e desenvolvimento): arquivo catalogo.txt.
-"""
-from livraria.compartilhado.repositorio_mongo import RepositorioMongo
+"""Armazenamento do catálogo e dados de exemplo gravados na primeira execução em arquivo TXT."""
 from livraria.compartilhado.repositorio_txt import RepositorioTxt
 from livraria.modulos.catalogo.dominio import Avaliacao, Edicao, Livro, Promocao
 
@@ -46,8 +41,5 @@ def dados_exemplo():
     ]
 
 
-def criar_repositorio(caminho, mongo_url=None):
-    """mongo_url: o banco é o do caminho da URL (ex.: mongodb://.../livraria) ou "livraria"."""
-    if mongo_url:
-        return RepositorioMongo(mongo_url, TIPOS, dados_iniciais=dados_exemplo())
+def criar_repositorio(caminho):
     return RepositorioTxt(caminho, TIPOS, dados_iniciais=dados_exemplo())

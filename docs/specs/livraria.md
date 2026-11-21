@@ -1,6 +1,6 @@
 # Livraria — especificação da demonstração (fonte única de verdade)
 
-> Exercícios 10.1 e 10.2 (Lab 10): catálogo no Azure Cosmos DB for MongoDB e usuários no Azure Database for PostgreSQL. Base: Exercício 8.6 (Lab 08), deploy da arquitetura **Cliente-Servidor** com front-end e back-end em repositórios e endereços separados. Este repositório é o **back-end** (Aplicação/Routes/Negócios/Dados); o cliente MVC está em `livraria-frontend-exercicio-10`. Regras R01–R08 e critérios C01–C10 não mudam.
+> Exercício 10.2 (Lab 10): usuários no Azure Database for PostgreSQL. Base: Exercício 8.6 (Lab 08), deploy da arquitetura **Cliente-Servidor** com front-end e back-end em repositórios e endereços separados. Este repositório é o **back-end** (Aplicação/Routes/Negócios/Dados); o cliente MVC está em `livraria-frontend-exercicio-10`. Regras R01–R08 e critérios C01–C10 não mudam.
 
 ## Escopo e dados
 

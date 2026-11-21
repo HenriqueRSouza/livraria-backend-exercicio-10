@@ -25,11 +25,9 @@ Marcar somente após verificar a tarefa. T01–T17 foram concluídas nos exercí
 - [x] T32 Front-end: `config.js` com o endereço da API, token no `localStorage` e testes em Node (MVC, Model e View).
 - [x] T33 Publicar o back-end no Azure App Service e o front-end em outro Web App (Node) no mesmo plano, ligados por LIVRARIA_API_URL e LIVRARIA_CORS_ORIGENS, com deploy automático pelo GitHub Actions.
 
-## Exercícios 10.1 (Banco NoSQL) e 10.2 (Banco SQL)
+## Exercício 10.2 (Banco SQL)
 
-- [x] T34 Criar `RepositorioMongo` (mesma interface `RepositorioModulo`) e guardar o catálogo no Azure Cosmos DB for MongoDB: uma coleção por entidade, ids pela coleção `contadores`.
-- [x] T35 Ampliar o catálogo de exemplo para 12 livros (com edições e estoque) gravados no MongoDB na primeira execução.
-- [x] T36 Criar `RepositorioPostgres` e guardar usuários e favoritos no Azure Database for PostgreSQL: tabelas `clientes` (SERIAL, email UNIQUE) e `favoritos` (chave composta), transação com COMMIT/ROLLBACK.
-- [x] T37 Escolher o banco por variável de ambiente (`LIVRARIA_MONGO_URL`, `LIVRARIA_POSTGRES_URL`); sem elas, os módulos continuam em TXT.
-- [x] T38 Testar os dois repositórios com bancos reais (serviços do GitHub Actions) e repetir C01–C10 com MongoDB e PostgreSQL.
-- [x] T39 Publicar em Web Apps novos (`engsoft-lab10-backend` e `engsoft-lab10-frontend`) e cadastrar 4 usuários pela API.
+- [x] T34 Criar `RepositorioPostgres` e guardar usuários e favoritos no Azure Database for PostgreSQL: tabelas `clientes` (SERIAL, email UNIQUE) e `favoritos` (chave composta), transação com COMMIT/ROLLBACK.
+- [x] T35 Escolher o banco por variável de ambiente (`LIVRARIA_POSTGRES_URL`); sem ela, os usuários continuam em TXT.
+- [x] T36 Testar o repositório com banco real (serviço do GitHub Actions) e repetir C01–C10 com PostgreSQL.
+- [x] T37 Publicar em Web Apps novos (`engsoft-lab10-backend` e `engsoft-lab10-frontend`) e cadastrar 4 usuários pela API.
