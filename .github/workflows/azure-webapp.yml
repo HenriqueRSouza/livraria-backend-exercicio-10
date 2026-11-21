@@ -10,21 +10,13 @@ on:
 jobs:
   testes:
     runs-on: ubuntu-latest
-    # Bancos de verdade para tests/test_bancos.py (catálogo no MongoDB, usuários no PostgreSQL).
+    # Banco de verdade para tests/test_bancos.py (catálogo no MongoDB).
     services:
       mongo:
         image: mongo:7
         ports: ["27017:27017"]
-      postgres:
-        image: postgres:16-alpine
-        env:
-          POSTGRES_PASSWORD: teste
-          POSTGRES_DB: livraria
-        ports: ["5432:5432"]
-        options: --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
     env:
       LIVRARIA_TESTE_MONGO_URL: mongodb://localhost:27017/livraria_teste
-      LIVRARIA_TESTE_POSTGRES_URL: postgresql://postgres:teste@localhost:5432/livraria
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

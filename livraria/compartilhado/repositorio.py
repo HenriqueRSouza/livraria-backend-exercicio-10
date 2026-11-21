@@ -1,6 +1,6 @@
 """Interface de repositório (DIP): cada módulo depende desta abstração, não do arquivo TXT.
 
-Qualquer classe que implemente estes métodos pode guardar os dados de um módulo (TXT, SQLite, PostgreSQL...).
+Qualquer classe que implemente estes métodos pode guardar os dados de um módulo (TXT, MongoDB...).
 """
 from abc import ABC, abstractmethod
 

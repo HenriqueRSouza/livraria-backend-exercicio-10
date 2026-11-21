@@ -1,6 +1,6 @@
 """Raiz de composição do monólito modular.
 
-Cria cada módulo com o seu próprio banco (catálogo no MongoDB, usuários no PostgreSQL, demais em TXT), injeta as APIs de que ele depende e liga os eventos no
+Cria cada módulo com o seu próprio banco (catálogo no MongoDB, demais em TXT), injeta as APIs de que ele depende e liga os eventos no
 barramento. É o único lugar que conhece todos os módulos por dentro.
 
 Dependências entre módulos (sem ciclos):
@@ -34,14 +34,14 @@ from livraria.modulos.usuarios import dados as dados_usuarios
 from livraria.modulos.usuarios.api import ClienteCadastrado, UsuariosAPI
 
 
-def montar_modulos(pasta_dados, mongo_url=None, postgres_url=None):
-    """mongo_url: catálogo no Cosmos DB for MongoDB; postgres_url: usuários no PostgreSQL. Sem eles, arquivos TXT."""
+def montar_modulos(pasta_dados, mongo_url=None):
+    """mongo_url: catálogo no Cosmos DB for MongoDB. Sem ela, arquivo TXT."""
     pasta = Path(pasta_dados)
     barramento = BarramentoEventos()
 
     catalogo = CatalogoAPI(dados_catalogo.criar_repositorio(pasta / "catalogo.txt", mongo_url))
     busca = BuscaAPI(catalogo)
-    usuarios = UsuariosAPI(dados_usuarios.criar_repositorio(pasta / "usuarios.txt", postgres_url),
+    usuarios = UsuariosAPI(dados_usuarios.criar_repositorio(pasta / "usuarios.txt"),
                            catalogo, barramento)
     estoque = EstoqueAPI(dados_estoque.criar_repositorio(pasta / "estoque.txt"), usuarios, barramento)
     pagamentos = PagamentosAPI(dados_pagamentos.criar_repositorio(pasta / "pagamentos.txt"))
